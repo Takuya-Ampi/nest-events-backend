@@ -3,4 +3,9 @@ export class CreateEventDto {
   description: string
   when: string
   address: string
+  baz: {
+    hoge: string
+    piyo: string
+    fuga: number
+  }
 }
