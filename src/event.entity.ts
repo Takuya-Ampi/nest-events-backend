@@ -1,6 +1,7 @@
-export class CreateEventDto {
+export class Event {
+  id: number
   name: string
   description: string
-  when: string
+  when: Date
   address: string
 }
