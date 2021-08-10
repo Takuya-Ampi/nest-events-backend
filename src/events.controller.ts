@@ -14,7 +14,8 @@ export class EventsController {
 
   @Get('practice')
   async practice() {
-    return await this.repository.find( {
+    return await this.repository.find({
+        select: ['id', 'when'],
         where: [
             { 
               id: MoreThan(3),
@@ -22,7 +23,10 @@ export class EventsController {
             }, 
             { description: Like('%meet%')}
           ],
-        take: 2
+        take: 2, 
+        order: {
+          id: 'DESC'
+        }
       }
     )
   }
