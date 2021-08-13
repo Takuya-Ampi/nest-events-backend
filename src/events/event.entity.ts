@@ -1,20 +1,25 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Attendee } from "./attendee.entity";
 
 @Entity()
 export class Event {
   @PrimaryGeneratedColumn()
-  id: number
-  @Column({
-    type: "varchar",
-    unique: true,
-    nullable: false
+  id: number;
+
+  @Column()
+  name: string;
+
+  @Column()
+  description: string;
+
+  @Column()
+  when: Date;
+
+  @Column()
+  address: string;
+
+  @OneToMany(() => Attendee, (attendee) => attendee.event, {
+    cascade: true
   })
-  @Column({length: 100})
-  name: string
-  @Column()
-  description: string
-  @Column()
-  when: Date
-  @Column()
-  address: string
+  attendees: Attendee[];
 }
