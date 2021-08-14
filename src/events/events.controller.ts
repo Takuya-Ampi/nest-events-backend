@@ -30,6 +30,10 @@ export class EventsController {
       }
     )
   }
+  @Get('practice2')
+  async practice2() {
+    return await this.repository.findOne(1, { relations: ['attendees'] })
+  }
   @Get()
   async findAll() {
     return await this.repository.find()
