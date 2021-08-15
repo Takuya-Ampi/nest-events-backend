@@ -42,7 +42,7 @@ export class EventsController {
     event.id = 2
 
     const attendee = new Attendee()
-    attendee.name = 'fefeSecond'
+    // attendee.name = 'fefeSecond'
     attendee.event = event
 
     await this.attendeeRepository.save(attendee)
